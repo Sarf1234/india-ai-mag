@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
 import { verifyToken } from "./src/lib/auth";
 
-export function middleware(req) {
+export async function middleware(req) {
   const token = req.cookies.get("token")?.value || null;
 
-  // Protected routes
   const protectedRoutes = ["/dashboard", "/admin"];
-
-  const isProtected = protectedRoutes.some((route) =>
+  const isProtected = protectedRoutes.some(route =>
     req.nextUrl.pathname.startsWith(route)
   );
 
@@ -17,8 +15,10 @@ export function middleware(req) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  const decoded = verifyToken(token);
-  if (!decoded) {
+  try {
+    const decoded = await verifyToken(token); // if async
+    if (!decoded) throw new Error("Invalid token");
+  } catch (err) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
