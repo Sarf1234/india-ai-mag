@@ -22,7 +22,7 @@ export default function CreatePostPage() {
   return (
     <div className="p-6 max-w-5xl mx-auto">
       <h2 className="text-2xl font-semibold text-rose-600 mb-4">Create Post</h2>
-      <PostForm onSubmit={handleCreate} />
+      
     </div>
   );
 }

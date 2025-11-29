@@ -48,7 +48,7 @@ export default function EditPostPage() {
   return (
     <div className="p-6 max-w-5xl mx-auto">
       <h2 className="text-2xl font-semibold text-rose-600 mb-4">Edit Post</h2>
-      <PostForm initialData={post} onSubmit={handleUpdate} />
+      
     </div>
   );
 }
