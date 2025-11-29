@@ -1,10 +1,12 @@
 "use client";
-
+export const dynamic = "force-dynamic";
+export const ssr = false;
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import PostForm from "@/components/ui/admin/PostForm";
 import { apiRequest } from "@/lib/api";
 import { toast } from "sonner";
+
 
 export default function EditPostPage() {
   const { id } = useParams();

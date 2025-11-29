@@ -1,10 +1,12 @@
 "use client";
-
+export const dynamic = "force-dynamic";
+export const ssr = false;
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { apiRequest } from "@/lib/api";
 import { toast } from "sonner";
+
 
 export default function PostsList() {
   const [posts, setPosts] = useState([]);
