@@ -13,11 +13,14 @@ const Navbar = () => {
   const isActive = (path) => pathname === path;
 
   const menuItems = [
-    { name: "Love Advice", slug: "/love-advice" },
-    { name: "Relationship Tips", slug: "/relationship-tips" },
-    { name: "Couple Guide", slug: "/couple-guide" },
-    { name: "Breakup Help", slug: "/breakup-help" },
-    { name: "Blogs", slug: "/blogs" },
+    { name: "Love", slug: "/tag/love" },
+    { name: "Communication", slug: "/tag/communication" },
+    { name: "Flirting", slug: "/tag/flirting" },
+    { name: "First Date", slug: "/tag/first-date" },
+    { name: "Breakup", slug: "/tag/breakup" },
+    { name: "Healing", slug: "/tag/healing" },
+    { name: "Long Distance", slug: "/tag/long-distance" },
+    { name: "Blogs", slug: "/blog" },
   ];
 
   useEffect(() => {

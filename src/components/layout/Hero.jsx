@@ -31,13 +31,13 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
             <Link
-              href="/blogs"
+              href="/blog"
               className="px-6 py-3 bg-rose-500 text-white rounded-lg shadow-lg font-semibold hover:bg-rose-600 transition-colors duration-200 text-center"
             >
               Explore Blogs
             </Link>
             <Link
-              href="/love-stories"
+              href="/love"
               className="px-6 py-3 border border-rose-500 text-rose-500 rounded-lg font-semibold hover:bg-rose-50 transition-colors duration-200 text-center"
             >
               Read Love Stories
