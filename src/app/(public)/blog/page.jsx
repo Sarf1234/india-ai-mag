@@ -24,7 +24,7 @@ export default async function AllPostsPage({ searchParams }) {
   let total = 0;
 
   try {
-    const res = await apiRequest(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
+    const res = await apiRequest(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?page=1&limit=50`);
 
 
     posts = res.data;
