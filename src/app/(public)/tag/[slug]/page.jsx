@@ -65,7 +65,7 @@ export default async function TagPage({ params }) {
 
   try {
     const res = await apiRequest(`${process.env.NEXT_PUBLIC_API_URL}/api/tags/${slug}`);
-    tag = res.data || res.data;
+    tag = res.tag || res.data;
     posts = res.data || [];
   } catch (err) {
     console.error("Failed to fetch tag posts:", err);

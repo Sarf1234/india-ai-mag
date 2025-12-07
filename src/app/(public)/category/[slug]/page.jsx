@@ -65,7 +65,7 @@ export default async function CategoryPage({ params }) {
 
   try {
     const res = await apiRequest(`${process.env.NEXT_PUBLIC_API_URL}/api/categories/${slug}`);
-    category = res.data || res.data;
+    category = res.category || res.data;
     posts = res.data || [];
   } catch (err) {
     console.error("Failed to fetch category posts:", err);
