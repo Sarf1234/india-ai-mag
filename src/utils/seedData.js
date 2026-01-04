@@ -1,134 +1,215 @@
 export const categoriesSeed = [
   {
-    name: "AI Basics & Understanding",
-    slug: "ai-basics-understanding",
-    title: "AI Basics & Understanding – Learn Artificial Intelligence in Simple Terms",
-    description: "Clear and beginner-friendly explanations of artificial intelligence, how it works, and where it is used in real life — without technical complexity.",
-    keywords: ["ai basics", "artificial intelligence explained", "ai for beginners", "understanding ai"]
+    name: "AI for Beginners",
+    slug: "ai-for-beginners",
+    title: "AI for Beginners – AI Ka Use Kaise Kare (Hinglish Guide)",
+    description:
+      "Beginners ke liye simple Hinglish guides jo batati hain AI ka use kaise kare, bina coding aur bina technical confusion.",
+    keywords: [
+      "ai ka use kaise kare",
+      "ai for beginners india",
+      "ai basics hindi",
+      "learn ai hinglish",
+    ],
   },
 
   {
-    name: "Practical AI Tools",
-    slug: "practical-ai-tools",
-    title: "Practical AI Tools – Useful Applications That Solve Real Problems",
-    description: "Curated AI tools focused on real-world usage, productivity, automation, and everyday problem-solving across different industries.",
-    keywords: ["practical ai tools", "best ai tools", "useful ai applications", "ai tools for productivity"]
+    name: "AI for Students",
+    slug: "ai-for-students",
+    title:
+      "AI for Students – Padhai, Assignments, Notes & Exams Me AI Ka Use",
+    description:
+      "Students ke liye practical AI guides: assignments, project reports, notes banana aur exam preparation ke liye AI ka sahi use.",
+    keywords: [
+      "ai tools for students india",
+      "ai for assignments",
+      "ai for exam preparation",
+      "student ai tools",
+    ],
   },
 
   {
-    name: "AI Use Cases",
-    slug: "ai-use-cases",
-    title: "AI Use Cases – How Artificial Intelligence Is Used in Real Life",
-    description: "Real-world examples and scenarios showing how individuals and businesses apply AI to daily tasks, work, and decision-making.",
-    keywords: ["ai use cases", "ai applications", "ai in real life", "how ai is used"]
+    name: "AI for Daily Work",
+    slug: "ai-for-daily-work",
+    title:
+      "AI for Daily Work – Office, Job & Routine Kaam Me AI Tools",
+    description:
+      "Office work, Excel, email, resume, interview aur daily routine kaam ke liye AI ka practical use Hinglish me.",
+    keywords: [
+      "ai tools for daily work",
+      "ai for office work",
+      "ai for excel",
+      "ai for job",
+    ],
+  },
+
+  {
+    name: "AI for Small Business",
+    slug: "ai-for-small-business",
+    title:
+      "AI for Small Business – Kirana Store, Shop & Local Business AI",
+    description:
+      "Small business aur shop owners ke liye AI tools: billing, WhatsApp automation, marketing aur daily business operations.",
+    keywords: [
+      "ai for small business india",
+      "ai for kirana store",
+      "ai tools for shop owners",
+      "ai business tools",
+    ],
+  },
+
+  {
+    name: "Free AI Tools",
+    slug: "free-ai-tools",
+    title:
+      "Free AI Tools – Bina Paise AI Tools (Students, Beginners & Business)",
+    description:
+      "Free aur low-cost AI tools jo students, beginners aur small businesses daily kaam ke liye use kar sakte hain.",
+    keywords: [
+      "free ai tools",
+      "free ai tools for students",
+      "free ai tools india",
+    ],
   },
 
   {
     name: "No-Code AI & Automation",
     slug: "no-code-ai-automation",
-    title: "No-Code AI & Automation – Build AI Workflows Without Programming",
-    description: "Guides and platforms that allow users to create AI-powered automations and workflows without writing code.",
-    keywords: ["no code ai", "ai automation tools", "build ai without code", "no code workflows"]
-  },
-
-  {
-    name: "AI for Work & Business",
-    slug: "ai-for-work-business",
-    title: "AI for Work & Business – Improve Efficiency With Artificial Intelligence",
-    description: "Practical insights on using AI in workplaces, freelancing, startups, and small businesses to improve productivity and operations.",
-    keywords: ["ai for business", "ai for work", "business automation ai", "ai tools for professionals"]
+    title:
+      "No-Code AI & Automation – Bina Coding AI Workflows Banaye",
+    description:
+      "AI tools aur platforms jo bina coding automation, workflows aur integrations banane me madad karte hain.",
+    keywords: [
+      "no code ai",
+      "ai automation tools",
+      "build ai without code",
+      "no code workflows",
+    ],
   },
 
   {
     name: "AI Tutorials & Guides",
     slug: "ai-tutorials-guides",
-    title: "AI Tutorials & Guides – Step-by-Step Learning Resources",
-    description: "Practical tutorials and walkthroughs to help users learn and apply AI tools effectively with clear steps and examples.",
-    keywords: ["ai tutorials", "how to use ai", "ai guides", "learn ai step by step"]
+    title:
+      "AI Tutorials & Guides – Step-by-Step AI Use Karna Sikhe",
+    description:
+      "Step-by-step tutorials aur practical guides jo AI tools ko effectively use karna sikhate hain.",
+    keywords: [
+      "ai tutorials",
+      "how to use ai",
+      "ai guides",
+      "learn ai step by step",
+    ],
   },
 
   {
-    name: "AI Trends & Updates",
-    slug: "ai-trends-updates",
-    title: "AI Trends & Updates – Latest Developments Explained Simply",
-    description: "Coverage of recent AI developments, product launches, and industry trends explained for a general audience.",
-    keywords: ["ai trends", "ai updates", "latest ai news", "ai industry developments"]
+    name: "AI Reality Check",
+    slug: "ai-reality-check",
+    title:
+      "AI Reality Check – Trends, Risks, Limitations & Future Impact",
+    description:
+      "AI ke trends, risks, limitations aur future impact ko simple Hinglish me samjhaane wali category.",
+    keywords: [
+      "ai trends india",
+      "ai risks",
+      "ai future impact",
+      "ai jobs impact",
+    ],
   },
-
-  {
-    name: "AI Ethics & Impact",
-    slug: "ai-ethics-impact",
-    title: "AI Ethics & Impact – Risks, Limitations, and Real Impact of AI",
-    description: "Balanced discussions on AI risks, ethics, privacy concerns, and its long-term impact on jobs and society.",
-    keywords: ["ai ethics", "ai risks", "ai impact", "ai privacy concerns"]
-  }
 ];
+
 
 export const tagsSeed = [
   {
     name: "Beginner Guide",
     slug: "beginner-guide",
     title: "Beginner Guide – AI Content for New Users",
-    description: "Introductory and easy-to-follow AI content designed for people starting their AI journey.",
-    keywords: ["ai beginner guide", "ai for beginners", "learn ai basics"]
+    description:
+      "Introductory AI content jo beginners ko zero se AI samajhne aur use karne me madad karta hai.",
+    keywords: ["ai beginner guide", "ai for beginners", "learn ai basics"],
   },
 
   {
     name: "Non-Technical",
     slug: "non-technical",
-    title: "Non-Technical – AI Without Coding or Technical Knowledge",
-    description: "AI content focused on usage and understanding rather than programming or technical theory.",
-    keywords: ["ai for non technical users", "ai without coding", "simple ai usage"]
+    title: "Non-Technical – AI Without Coding",
+    description:
+      "AI content jo bina coding ya technical knowledge ke practical usage pe focus karta hai.",
+    keywords: [
+      "ai for non technical users",
+      "ai without coding",
+      "simple ai usage",
+    ],
+  },
+
+  {
+    name: "Students",
+    slug: "students",
+    title: "Students – AI for Padhai & Exams",
+    description:
+      "Students ke liye AI tools aur techniques jo padhai, assignments aur exams me help karti hain.",
+    keywords: ["ai for students", "student ai tools"],
+  },
+
+  {
+    name: "Small Business",
+    slug: "small-business",
+    title: "Small Business – AI for Shop & Local Business",
+    description:
+      "Small business aur shop owners ke liye AI usage, tools aur automation ideas.",
+    keywords: ["ai for small business", "ai for shop owners"],
   },
 
   {
     name: "Free & Accessible",
     slug: "free-accessible",
-    title: "Free & Accessible – AI Tools Anyone Can Use",
-    description: "AI tools, methods, and resources available for free or with minimal cost.",
-    keywords: ["free ai tools", "accessible ai tools", "free artificial intelligence"]
+    title: "Free & Accessible – Free AI Tools",
+    description:
+      "Free ya low-cost AI tools jo beginners aur students easily use kar sakte hain.",
+    keywords: ["free ai tools", "accessible ai tools"],
   },
 
   {
-    name: "Prompts & Templates",
-    slug: "prompts-templates",
-    title: "Prompts & Templates – Ready-to-Use AI Inputs",
-    description: "Reusable prompts and templates for writing, planning, automation, and creative tasks.",
-    keywords: ["ai prompts", "prompt templates", "chatgpt prompts"]
-  },
-
-  {
-    name: "Productivity & Efficiency",
-    slug: "productivity-efficiency",
-    title: "Productivity & Efficiency – Work Smarter With AI",
-    description: "Content focused on saving time, reducing manual work, and improving efficiency using AI tools.",
-    keywords: ["ai productivity", "work efficiently with ai", "ai time management"]
+    name: "Productivity",
+    slug: "productivity",
+    title: "Productivity – AI Se Time & Effort Bachaye",
+    description:
+      "AI tools aur workflows jo productivity badhate hain aur manual work kam karte hain.",
+    keywords: [
+      "ai productivity",
+      "work efficiently with ai",
+      "ai time management",
+    ],
   },
 
   {
     name: "Automation",
     slug: "automation",
-    title: "Automation – Reduce Manual Work With AI",
-    description: "Examples and guides on using AI-driven automation for repetitive and time-consuming tasks.",
-    keywords: ["ai automation", "automation using ai", "intelligent automation"]
+    title: "Automation – Daily Kaam AI Se Automate Kare",
+    description:
+      "AI-based automation ideas jo repetitive aur boring tasks ko automate karti hain.",
+    keywords: ["ai automation", "automation using ai"],
+  },
+
+  {
+    name: "Prompts & Templates",
+    slug: "prompts-templates",
+    title: "Prompts & Templates – Ready-to-Use AI Prompts",
+    description:
+      "Ready-made AI prompts aur templates jo writing, planning aur automation me kaam aate hain.",
+    keywords: ["ai prompts", "prompt templates", "chatgpt prompts"],
   },
 
   {
     name: "Privacy & Safety",
     slug: "privacy-safety",
-    title: "Privacy & Safety – Responsible Use of AI",
-    description: "Guides and awareness content on data privacy, security, and responsible AI usage.",
-    keywords: ["ai privacy", "ai safety", "responsible ai"]
+    title: "Privacy & Safety – Responsible AI Use",
+    description:
+      "AI use karte waqt privacy, safety aur data protection se related awareness content.",
+    keywords: ["ai privacy", "ai safety", "responsible ai"],
   },
-
-  {
-    name: "Real-World Use",
-    slug: "real-world-use",
-    title: "Real-World Use – Practical AI Applications",
-    description: "Content focused on practical and real-world implementation of AI solutions.",
-    keywords: ["real world ai", "practical ai use cases", "ai applications"]
-  }
 ];
+
 
 
 
