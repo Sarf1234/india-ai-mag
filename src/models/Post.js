@@ -22,7 +22,23 @@ const PostSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Tag",
-      }
+      },
+    ],
+
+    // ✅ INTERNAL LINKING (NEW)
+    internalLinks: [
+      {
+        title: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+        url: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+      },
     ],
 
     isFeatured: { type: Boolean, default: false },
@@ -38,6 +54,9 @@ const PostSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// existing text index (untouched)
 PostSchema.index({ title: "text", content: "text", excerpt: "text" });
+
 export default mongoose.models.Post ||
   mongoose.model("Post", PostSchema);

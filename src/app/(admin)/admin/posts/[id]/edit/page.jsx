@@ -10,15 +10,18 @@ import { toast } from "sonner";
 export default function EditPostPage() {
   const { id } = useParams();
   const router = useRouter();
+
   const [post, setPost] = useState(null);
+  const [internalLinks, setInternalLinks] = useState([]);
+  const [loadingLinks, setLoadingLinks] = useState(true);
 
-
+  // 🔹 Load post data
   useEffect(() => {
     let mounted = true;
-    async function load() {
+
+    async function loadPost() {
       try {
         const res = await apiRequest(`/api/posts/${id}`, "GET");
-        // your GET returns { success, data }
         const data = res.data || res.post || res;
         if (!mounted) return;
         setPost(data);
@@ -26,9 +29,34 @@ export default function EditPostPage() {
         toast.error("Failed to load post");
       }
     }
-    if (id) load();
+
+    if (id) loadPost();
     return () => (mounted = false);
   }, [id]);
+
+  // 🔹 Load internal links (same as create page)
+  useEffect(() => {
+    let active = true;
+
+    async function fetchInternalLinks() {
+      try {
+        const res = await apiRequest("/api/posts/internal-links", "GET");
+        if (active) {
+          setInternalLinks(res.data || []);
+        }
+      } catch (err) {
+        console.error("Failed to load internal links", err);
+        toast.error("Failed to load internal links");
+      } finally {
+        if (active) setLoadingLinks(false);
+      }
+    }
+
+    fetchInternalLinks();
+    return () => {
+      active = false;
+    };
+  }, []);
 
   async function handleUpdate(payload) {
     try {
@@ -40,12 +68,23 @@ export default function EditPostPage() {
     }
   }
 
-  if (!post) return <div className="p-6">Loading...</div>;
+  if (!post) {
+    return <div className="p-6">Loading...</div>;
+  }
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
-      <h2 className="text-2xl font-semibold text-rose-600 mb-4">Edit Post</h2>
-      <PostForm initialData={post} onSubmit={handleUpdate} />
+      <h2 className="text-2xl font-semibold text-rose-600 mb-4">
+        Edit Post
+      </h2>
+
+      <PostForm
+        initialData={post}
+        onSubmit={handleUpdate}
+        internalLinks={internalLinks}   // ✅ NEW
+        loadingLinks={loadingLinks}     // ✅ NEW
+        mode="edit"                     // optional, future-proof
+      />
     </div>
   );
 }

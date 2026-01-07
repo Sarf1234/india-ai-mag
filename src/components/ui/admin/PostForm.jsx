@@ -119,7 +119,71 @@ function MultiSelect({ label, options = [], value = [], onChange, placeholder = 
   );
 }
 
-export default function PostForm({ initialData = {}, onSubmit }) {
+function InternalLinksSelect({ options, value, onChange, loading }) {
+  const [q, setQ] = useState("");
+
+  const filtered = options.filter(l =>
+    l.title.toLowerCase().includes(q.toLowerCase())
+  );
+
+  function toggle(link) {
+    const exists = value.some(v => v.url === link.url);
+    if (exists) onChange(value.filter(v => v.url !== link.url));
+    else onChange([...value, link]);
+  }
+
+  return (
+    <div>
+      <Label className="text-sm font-medium text-rose-700">
+        Internal Links
+      </Label>
+
+      <Input
+        value={q}
+        onChange={(e) => setQ(e.target.value)}
+        placeholder="Search posts..."
+        className="mb-2"
+      />
+
+      <div className="border rounded-md max-h-48 overflow-auto p-2">
+        {loading && <div className="text-sm text-gray-400">Loading…</div>}
+
+        {!loading && filtered.map(link => {
+          const checked = value.some(v => v.url === link.url);
+          return (
+            <label
+              key={link.url}
+              className="flex gap-2 px-2 py-2 hover:bg-rose-50 cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={() => toggle(link)}
+                className="accent-rose-600"
+              />
+              <div>
+                <div className="text-sm font-medium text-rose-700">
+                  {link.title}
+                </div>
+                <div className="text-xs text-gray-400">
+                  {link.url}
+                </div>
+              </div>
+            </label>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+
+export default function PostForm({
+  initialData = {},
+  onSubmit,
+  internalLinks = [],
+  loadingLinks = false,
+}) {
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState(initialData.title || "");
   const [slug, setSlug] = useState(initialData.slug || "");
@@ -136,6 +200,7 @@ export default function PostForm({ initialData = {}, onSubmit }) {
   const [metaKeywords, setMetaKeywords] = useState((initialData.metaKeywords || []).join(", "));
   const [allCategories, setAllCategories] = useState([]);
   const [allTags, setAllTags] = useState([]);
+  const [selectedInternalLinks, setSelectedInternalLinks] = useState(initialData.internalLinks || []);
   const editorRef = useRef(null);
 
   const joditConfig = {
@@ -222,6 +287,7 @@ export default function PostForm({ initialData = {}, onSubmit }) {
       metaTitle: metaTitle || title,
       metaDescription: metaDescription || excerpt || content.replace(/<[^>]+>/g, "").slice(0, 160),
       metaKeywords: metaKeywords ? metaKeywords.split(",").map(k => k.trim()).filter(Boolean) : [],
+      internalLinks: selectedInternalLinks,
     };
 
     try {
@@ -379,6 +445,13 @@ export default function PostForm({ initialData = {}, onSubmit }) {
               </div>
             </div>
           </div>
+
+          <InternalLinksSelect
+            options={internalLinks}
+            value={selectedInternalLinks}
+            onChange={setSelectedInternalLinks}
+            loading={loadingLinks}
+          />
 
           <div className="pt-2">
             <Button type="submit" className="w-full bg-rose-600 hover:bg-rose-700" disabled={loading}>
