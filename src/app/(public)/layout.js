@@ -52,7 +52,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://indiaaimag.com/og-image.jpg",
+        url: "https://res.cloudinary.com/dsc5aznps/image/upload/v1767975434/posts/tbyj0t1ch4xn0enetlij.png",
         width: 1200,
         height: 630,
         alt: "India AI Mag – AI Prompts, Tools & Automation in Hinglish",
@@ -66,15 +66,15 @@ export const metadata = {
     title: "India AI Mag – AI Prompts & Tools in Hinglish",
     description:
       "AI prompts, ChatGPT tools aur automation guides Hinglish me. Learn practical AI with India AI Mag.",
-    images: ["https://indiaaimag.com/og-image.jpg"],
+    images: ["https://res.cloudinary.com/dsc5aznps/image/upload/v1767975434/posts/tbyj0t1ch4xn0enetlij.png"],
     creator: "@indiaaimag", // optional (agar handle ho)
   },
 
   // Icons
   icons: {
-    icon: "/icons/favicon.ico",
-    shortcut: "/icons/favicon.ico",
-    apple: "/icons/apple-touch-icon.png",
+    icon: "https://res.cloudinary.com/dsc5aznps/image/upload/v1767975434/posts/tbyj0t1ch4xn0enetlij.png",
+    shortcut: "https://res.cloudinary.com/dsc5aznps/image/upload/v1767975434/posts/tbyj0t1ch4xn0enetlij.png",
+    apple: "https://res.cloudinary.com/dsc5aznps/image/upload/v1767975434/posts/tbyj0t1ch4xn0enetlij.png",
   },
 
   // Manifest (PWA optional)
