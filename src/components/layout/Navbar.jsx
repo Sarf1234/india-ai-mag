@@ -75,7 +75,7 @@ export default function Navbar() {
       {/* ✅ Mobile Navigation */}
       {open && (
         <div className="fixed inset-0 z-[60] bg-white px-6 pt-4">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-6 ">
             <span className="text-lg font-semibold text-slate-900">
               IndiaAIMag
             </span>
@@ -84,7 +84,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-3">
+          <nav className="flex flex-col bg-white gap-3">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.slug}
