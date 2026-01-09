@@ -16,10 +16,10 @@ export default function PostsList() {
 
     async function load() {
       try {
-        const res = await apiRequest("/api/posts?page=1&limit=50");
-        const data = res.data || res.posts || res;
+        const res = await apiRequest("/api/posts/admin?page=1&limit=100");
+        const data = res.data || [];
         if (!mounted) return;
-        setPosts(data || []);
+        setPosts(data);
       } catch (err) {
         toast.error("Failed to load posts");
       } finally {
@@ -47,11 +47,9 @@ export default function PostsList() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-2xl font-semibold text-rose-600">
-            Posts
-          </h1>
+          <h1 className="text-2xl font-semibold text-rose-600">Posts</h1>
           <p className="text-sm text-gray-500">
-            Manage, edit and organize your blog posts
+            Manage all published and draft posts
           </p>
         </div>
 
@@ -62,87 +60,107 @@ export default function PostsList() {
         </Link>
       </div>
 
-      {/* Content */}
+      {/* Loading */}
       {loading && (
-        <div className="text-gray-500 text-sm">Loading posts…</div>
+        <div className="text-sm text-gray-500">Loading posts…</div>
       )}
 
+      {/* Empty */}
       {!loading && posts.length === 0 && (
         <div className="border border-dashed rounded-lg p-10 text-center bg-rose-50">
-          <div className="text-lg font-medium text-rose-600">
-            No posts yet
-          </div>
+          <h2 className="text-lg font-medium text-rose-600">
+            No posts found
+          </h2>
           <p className="text-sm text-gray-500 mt-1">
-            Start by creating your first blog post
+            Create your first blog post
           </p>
-          <Link href="/admin/posts/create">
-            <Button className="mt-4 bg-rose-600 hover:bg-rose-700">
-              Create First Post
-            </Button>
-          </Link>
         </div>
       )}
 
+      {/* Table */}
       {!loading && posts.length > 0 && (
-        <div className="grid gap-4">
-          {posts.map((post) => (
-            <div
-              key={post._id}
-              className="group border rounded-lg p-4 bg-white hover:shadow-md transition-shadow"
-            >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                {/* Left */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-semibold text-gray-800 group-hover:text-rose-600 transition">
-                      {post.title}
-                    </h3>
+        <div className="overflow-x-auto border rounded-lg bg-white">
+          <table className="w-full text-sm">
+            <thead className="bg-gray-50 border-b">
+              <tr className="text-left text-gray-600">
+                <th className="px-4 py-3">Title</th>
+                <th className="px-4 py-3">Status</th>
+                <th className="px-4 py-3">Featured</th>
+                <th className="px-4 py-3">Trending</th>
+                <th className="px-4 py-3">Slug</th>
+                <th className="px-4 py-3">Created</th>
+                <th className="px-4 py-3 text-right">Actions</th>
+              </tr>
+            </thead>
 
-                    {post.isFeatured && (
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">
-                        Featured
+            <tbody>
+              {posts.map((post) => (
+                <tr
+                  key={post._id}
+                  className="border-b hover:bg-gray-50 transition"
+                >
+                  {/* Title */}
+                  <td className="px-4 py-3 font-medium text-gray-800">
+                    {post.title}
+                  </td>
+
+                  {/* Status */}
+                  <td className="px-4 py-3">
+                    {post.published ? (
+                      <span className="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700">
+                        Published
                       </span>
-                    )}
-
-                    {!post.published && (
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">
+                    ) : (
+                      <span className="px-2 py-0.5 text-xs rounded-full bg-gray-200 text-gray-600">
                         Draft
                       </span>
                     )}
-                  </div>
+                  </td>
 
-                  <p className="text-sm text-gray-500 mt-1 line-clamp-2">
-                    {post.excerpt || post.metaDescription || "No description"}
-                  </p>
+                  {/* Featured */}
+                  <td className="px-4 py-3">
+                    {post.isFeatured ? "✅" : "—"}
+                  </td>
 
-                  <div className="text-xs text-gray-400 mt-2">
-                    Slug: <span className="font-mono">{post.slug}</span>
-                  </div>
-                </div>
+                  {/* Trending */}
+                  <td className="px-4 py-3">
+                    {post.isTrending ? "🔥" : "—"}
+                  </td>
 
-                {/* Right */}
-                <div className="flex items-center gap-2">
-                  <Link href={`/admin/posts/${post._id}/edit`}>
+                  {/* Slug */}
+                  <td className="px-4 py-3 font-mono text-xs text-gray-500">
+                    {post.slug}
+                  </td>
+
+                  {/* Created */}
+                  <td className="px-4 py-3 text-gray-500">
+                    {new Date(post.createdAt).toLocaleDateString()}
+                  </td>
+
+                  {/* Actions */}
+                  <td className="px-4 py-3 text-right space-x-2">
+                    <Link href={`/admin/posts/${post._id}/edit`}>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="hover:border-rose-600 hover:text-rose-600"
+                      >
+                        Edit
+                      </Button>
+                    </Link>
+
                     <Button
                       size="sm"
-                      variant="outline"
-                      className="hover:border-rose-600 hover:text-rose-600"
+                      variant="destructive"
+                      onClick={() => handleDelete(post._id)}
                     >
-                      Edit
+                      Delete
                     </Button>
-                  </Link>
-
-                  <Button
-                    size="sm"
-                    variant="destructive"
-                    onClick={() => handleDelete(post._id)}
-                  >
-                    Delete
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
