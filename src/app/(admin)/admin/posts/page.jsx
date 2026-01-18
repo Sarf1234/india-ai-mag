@@ -147,7 +147,7 @@ export default function PostsList() {
 
                   {/* Actions */}
                   <td className="px-4 py-3 text-right flex justify-between gap-2">
-                    <Link href={`/admin/posts/${post._id}/edit`}>
+                    {/* <Link href={`/admin/posts/${post._id}/edit`}>
                       <Button
                         size="sm"
                         variant="outline"
@@ -155,7 +155,7 @@ export default function PostsList() {
                       >
                         Edit
                       </Button>
-                    </Link>
+                    </Link> */}
 
                     <Link href={`/blog/${post.slug}`}>
                       <Button
