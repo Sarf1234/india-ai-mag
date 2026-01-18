@@ -41,7 +41,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/tools" className="text-slate-600 hover:text-indigo-600 transition">
+                <Link href="/tag/free-accessible" className="text-slate-600 hover:text-indigo-600 transition">
                   Best AI Tools
                 </Link>
               </li>
@@ -64,7 +64,7 @@ export default function Footer() {
               Stay Connected
             </h4>
 
-            <div className="flex justify-center md:justify-end gap-4 mb-4">
+            {/* <div className="flex justify-center md:justify-end gap-4 mb-4">
               <Link
                 href="https://twitter.com"
                 target="_blank"
@@ -86,7 +86,7 @@ export default function Footer() {
               >
                 <Facebook className="w-5 h-5" />
               </Link>
-            </div>
+            </div> */}
 
             <p className="text-slate-600 max-w-xs mx-auto md:ml-auto md:mr-0">
               Practical AI insights — beginner-friendly, tested, and

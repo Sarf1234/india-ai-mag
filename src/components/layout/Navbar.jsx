@@ -9,9 +9,9 @@ const NAV_ITEMS = [
   { name: "Beginner Guide", slug: "/tag/beginner-guide" },
   { name: "Free AI Tools", slug: "/tag/free-accessible" },
   { name: "Prompts", slug: "/tag/prompts-templates" },
-  { name: "Productivity", slug: "/tag/productivity-efficiency" },
+  { name: "Productivity", slug: "/tag/productivity" },
   { name: "Automation", slug: "/tag/automation" },
-  { name: "Real-World Use", slug: "/tag/real-world-use" },
+  { name: "Real-World Use", slug: "/tag/non-technical" },
   { name: "Blog", slug: "/blog" },
 ];
 

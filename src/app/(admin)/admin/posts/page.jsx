@@ -167,14 +167,14 @@ export default function PostsList() {
                       </Button>
                     </Link>
 
-                    <Button
+                    {/* <Button
                       size="sm"
                       variant="destructive"
                       onClick={() => handleDelete(post._id)}
                       className="cursor-pointer"
                     >
                       Delete
-                    </Button>
+                    </Button> */}
                   </td>
                 </tr>
               ))}
