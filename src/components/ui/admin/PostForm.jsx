@@ -364,7 +364,7 @@ export default function PostForm({
 
           <div>
             <Label className="text-sm font-medium text-rose-700">Content</Label>
-            <div className="mt-2 border rounded-md">
+            <div className="mt-2 border rounded-md content">
               {typeof window !== "undefined" ? (
                 <JoditEditor
                   ref={editorRef}
